@@ -1,4 +1,3 @@
-import express from 'express'
+import setupApp from './config/app'
 
-const app = express()
-app.listen(5050, () => console.log('Server running at http://localhost:5050'))
+setupApp.listen(5050, () => console.log('Server running at http://localhost:5050'))
