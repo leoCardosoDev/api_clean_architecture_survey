@@ -12,6 +12,8 @@
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.0.3",
+    "@types/mongodb": "^4.0.7",
     "@types/bcrypt": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "eslint": "^6.8.0",
@@ -32,7 +34,9 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "validator": "^13.6.0"
+    "validator": "^13.6.0",
+    "mongo-round": "^1.0.0",
+    "mongodb": "^4.1.1"
   },
   "keywords": [],
   "author": "",
