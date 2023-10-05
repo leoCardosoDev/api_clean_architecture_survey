@@ -2,7 +2,7 @@ import request from 'supertest'
 import setupApp from '../config/app'
 import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
 
-describe('Account Mongo Repository', () => {
+describe('Login Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
   })
@@ -16,14 +16,16 @@ describe('Account Mongo Repository', () => {
     await accountCollection.deleteMany({})
   })
 
-  test('Should return an account on success', async () => {
-    await request(setupApp)
-      .post('/api/signup')
-      .send({
-        name: 'any_name',
-        email: 'any_email@email.com',
-        password: 'any_password',
-        passwordConfirmation: 'any_password'
-      }).expect(200)
+  describe('POST - signup', () => {
+    test('Should return an account on success', async () => {
+      await request(setupApp)
+        .post('/api/signup')
+        .send({
+          name: 'any_name',
+          email: 'any_email@email.com',
+          password: 'any_password',
+          passwordConfirmation: 'any_password'
+        }).expect(200)
+    })
   })
 })
