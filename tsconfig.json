@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "dist",
     "module": "commonjs",
     "target": "ES2019",
     "skipLibCheck": true,
@@ -9,6 +9,12 @@
       "./node_modules/@types"
     ],
     "esModuleInterop": true,
-    "allowJs": true
-  }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }
