@@ -9,6 +9,7 @@
       "./node_modules/@types"
     ],
     "esModuleInterop": true,
+    "sourceMap": true
   },
   "include": [
     "src"
