@@ -2,7 +2,11 @@ import { MongoHelper as sut } from './mongo-helper'
 
 describe('Mongo Helper', () => {
   beforeAll(async () => {
-    await sut.connect(process.env.MONGO_URL)
+    const mongoUrl = process.env.MONGO_URL
+    if (!mongoUrl) {
+      throw new Error('MONGO_URL is not defined in the environment variables.')
+    }
+    await sut.connect(mongoUrl)
   })
 
   afterAll(async () => {
