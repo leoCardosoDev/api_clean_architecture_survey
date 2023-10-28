@@ -12,7 +12,7 @@
   },
   "include": [
     "src"
-  ],
+, "jest-mongodb-config.js"  ],
   "exclude": [
     "**/*.spec.ts",
     "**/*.test.ts"
