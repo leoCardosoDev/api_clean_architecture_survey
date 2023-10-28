@@ -2,12 +2,15 @@ version: '3'
 services:
   mongo:
     container_name: mongo-container
-    image: mongo:3
+    image: mongo:7
     restart: always
     volumes:
       - ./data:/data/db
     ports:
       - '27017:27017'
+    networks:
+      - mynetwork
+
   api:
     container_name: api-container
     build: .
@@ -18,5 +21,9 @@ services:
       - ./dist:/usr/src/clean-node-api/dist
     ports:
       - '5050:5050'
-    links:
-      - mongo
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
