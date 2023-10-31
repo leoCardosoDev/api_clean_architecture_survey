@@ -5,7 +5,7 @@ import { LoadAccountByToken, HttpRequest, HttpResponse, Middleware } from './aut
 export class AuthMiddleware implements Middleware {
   constructor (
     private readonly loadAccountByToken: LoadAccountByToken,
-    private readonly role: string
+    private readonly role?: string
   ) {}
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
