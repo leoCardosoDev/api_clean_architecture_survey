@@ -2,7 +2,7 @@ import { badRequest, noContent, serverError } from '@/presentation/helpers/http/
 import { AddSurvey, AddSurveyController, AddSurveyModel, HttpRequest, Validation } from './add-survey-controller-protocols'
 import MockDate from 'mockdate'
 
-interface SutTypes {
+type SutTypes = {
   sut: AddSurveyController
   validationStub: Validation
   addSurveyStub: AddSurvey
