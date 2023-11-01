@@ -7,6 +7,7 @@ import env from '../config/env'
 
 let surveyCollection: Collection
 let accountCollection: Collection
+
 describe('Survey Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
@@ -66,6 +67,14 @@ describe('Survey Routes', () => {
           }]
         })
         .expect(204)
+    })
+  })
+
+  describe('GET - surveys', () => {
+    test('Should return 403 on load survey without accessToken', async () => {
+      await request(setupApp)
+        .get('/api/surveys')
+        .expect(403)
     })
   })
 })
