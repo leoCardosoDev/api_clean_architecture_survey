@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { Hasher } from '../../../application/protocols/criptogrphy/hasher'
+import { Hasher } from '@/application/protocols/criptogrphy/hasher'
 
 export class BcryptAdapter implements Hasher {
   constructor (private readonly salt: number) {
