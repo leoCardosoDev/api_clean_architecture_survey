@@ -1,5 +1,5 @@
 import { AccountModel } from '@/domain/model/account'
-import { AddAccountModel } from '@/domain/usecase/add-account'
+import { AddAccountModel } from '@/domain/usecase/account/add-account'
 import { AddAccountRepository } from '@/application/protocols/db/account/add-account-repositoy'
 import { LoadAccountByEmailRepository } from '@/application/protocols/db/account/load-account-by-email-repository'
 import { LoadAccountByTokenRepository } from '@/application/protocols/db/account/load-account-by-token-repository'
