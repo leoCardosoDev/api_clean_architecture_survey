@@ -1,3 +1,4 @@
+import { throwError } from '@/domain/test'
 import { LoadSurveysRepository, SurveyModel } from './db-load-surveys-protocols'
 import { DbLoadSurveys } from './db-load-surveys'
 import MockDate from 'mockdate'
@@ -68,7 +69,7 @@ describe('DbLoadSurveys', () => {
 
   test('Should throws if LoadSurveysRepository throw', async () => {
     const { sut, loadSurveysRepositoryStub } = makeSut()
-    jest.spyOn(loadSurveysRepositoryStub, 'loadAll').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    jest.spyOn(loadSurveysRepositoryStub, 'loadAll').mockImplementationOnce(() => throwError())
     const promise = sut.load()
     await expect(promise).rejects.toThrow()
   })
