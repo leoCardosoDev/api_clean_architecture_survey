@@ -1,5 +1,7 @@
+import { badRequest } from './components/bad-request'
 import { loginPath } from './paths/login-path'
 import { accountSchema } from './schemas/account-schema'
+import { errorSchema } from './schemas/error-schema'
 import { loginparamsSchema } from './schemas/login-params-schema'
 
 export default {
@@ -20,6 +22,10 @@ export default {
   },
   schemas: {
     account: accountSchema,
-    loginParams: loginparamsSchema
+    loginParams: loginparamsSchema,
+    error: errorSchema
+  },
+  components: {
+    badRequest: badRequest
   }
 }
