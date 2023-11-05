@@ -1,8 +1,6 @@
-import { badRequest } from './components/bad-request'
-import { loginPath } from './paths/login-path'
-import { accountSchema } from './schemas/account-schema'
-import { errorSchema } from './schemas/error-schema'
-import { loginparamsSchema } from './schemas/login-params-schema'
+import { badRequest, notFound, serverError, unauthorized } from './components'
+import { loginPath } from './paths'
+import { accountSchema, errorSchema, loginparamsSchema } from './schemas'
 
 export default {
   openapi: '3.0.0',
@@ -10,6 +8,10 @@ export default {
     title: 'Clean Node API',
     description: 'API do curso de Clean Architecture para enquetes',
     version: '1.0.0'
+  },
+  license: {
+    name: '',
+    url: ''
   },
   servers: [{
     url: '/api'
@@ -26,6 +28,9 @@ export default {
     error: errorSchema
   },
   components: {
-    badRequest: badRequest
+    badRequest: badRequest,
+    serverError: serverError,
+    unauthorized: unauthorized,
+    notFound: notFound
   }
 }
