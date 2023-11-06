@@ -16,5 +16,6 @@ export const surveySchema = {
     date: {
       type: 'string'
     }
-  }
+  },
+  required: ['question', 'answers']
 }
