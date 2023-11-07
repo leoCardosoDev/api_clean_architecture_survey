@@ -3,7 +3,7 @@ import { LoadSurveyResultRepository, SurveyResultModel, loadSurveyResult } from 
 export class DbLoadSurveyResult implements loadSurveyResult {
   constructor (private readonly loadSurveyResultRepository: LoadSurveyResultRepository) {}
   async load (surveyId: string): Promise<SurveyResultModel> {
-    await this.loadSurveyResultRepository.loadBySurveyId(surveyId)
-    return null
+    const surveyResult = await this.loadSurveyResultRepository.loadBySurveyId(surveyId)
+    return surveyResult
   }
 }
