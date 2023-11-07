@@ -10,7 +10,7 @@ type SutTypes = {
   addSurveyStub: AddSurvey
 }
 
-const makeFakeRequest = (): HttpRequest => ({
+const mockRequest = (): HttpRequest => ({
   body: {
     question: 'any_question',
     answers: [{
@@ -43,7 +43,7 @@ describe('AddSurvey Controller', () => {
   test('Should call Validation with corret values', async () => {
     const { sut, validationStub } = makeSut()
     const validationSpy = jest.spyOn(validationStub, 'validate')
-    const httpRequest = makeFakeRequest()
+    const httpRequest = mockRequest()
     await sut.handle(httpRequest)
     expect(validationSpy).toHaveBeenCalledWith(httpRequest.body)
   })
@@ -51,14 +51,14 @@ describe('AddSurvey Controller', () => {
   test('Should returns 400 if Validation fails', async () => {
     const { sut, validationStub } = makeSut()
     jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new Error())
-    const httpRequest = await sut.handle(makeFakeRequest())
+    const httpRequest = await sut.handle(mockRequest())
     expect(httpRequest).toEqual(badRequest(new Error()))
   })
 
   test('Should call Validation with corret values', async () => {
     const { sut, addSurveyStub } = makeSut()
     const addSpy = jest.spyOn(addSurveyStub, 'add')
-    const httpRequest = makeFakeRequest()
+    const httpRequest = mockRequest()
     await sut.handle(httpRequest)
     expect(addSpy).toHaveBeenCalledWith(httpRequest.body)
   })
@@ -66,13 +66,13 @@ describe('AddSurvey Controller', () => {
   test('Should returns 500 if AddSurvey throws', async () => {
     const { sut, addSurveyStub } = makeSut()
     jest.spyOn(addSurveyStub, 'add').mockImplementationOnce(() => throwError())
-    const httpRequest = await sut.handle(makeFakeRequest())
+    const httpRequest = await sut.handle(mockRequest())
     expect(httpRequest).toEqual(serverError(new Error()))
   })
 
   test('Should returns 204 on success', async () => {
     const { sut } = makeSut()
-    const httpRequest = await sut.handle(makeFakeRequest())
+    const httpRequest = await sut.handle(mockRequest())
     expect(httpRequest).toEqual(noContent())
   })
 })
