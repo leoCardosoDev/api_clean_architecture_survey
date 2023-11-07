@@ -1,9 +1,12 @@
-import { Controller, HttpRequest, HttpResponse, LoadSurveyById } from './load-survey-result-controller-protocols'
+import { Controller, HttpRequest, HttpResponse, InvalidParamError, LoadSurveyById, forbidden } from './load-survey-result-controller-protocols'
 
 export class LoadSurveyResultController implements Controller {
   constructor (private readonly loadSurveyByid: LoadSurveyById) {}
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
-    await this.loadSurveyByid.loadById(httpRequest.params.surveyId)
+    const survey = await this.loadSurveyByid.loadById(httpRequest.params.surveyId)
+    if (!survey) {
+      return forbidden(new InvalidParamError('surveyId'))
+    }
     return null
   }
 }
