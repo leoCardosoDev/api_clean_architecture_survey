@@ -1,5 +1,5 @@
 import MockDate from 'mockdate'
-import { mockSaveSurveyResultModel, mockSaveSurveyResultParams, throwError } from '@/domain/test'
+import { mockSurveyResultModel, mockSaveSurveyResultParams, throwError } from '@/domain/test'
 import { InvalidParamError } from '@/presentation/errors'
 import { forbidden, ok, serverError } from '@/presentation/helpers/http/http-helper'
 import { HttpRequest, LoadSurveyById, SaveSurveyResult } from './save-survey-result-controller-protocols'
@@ -93,6 +93,6 @@ describe('SaveSurveyResult Controller', () => {
   test('Should returns 200 if SaveSurveyResult success', async () => {
     const { sut } = makeSut()
     const httpResponse = await sut.handle(mockRequest())
-    expect(httpResponse).toEqual(ok(mockSaveSurveyResultModel()))
+    expect(httpResponse).toEqual(ok(mockSurveyResultModel()))
   })
 })
