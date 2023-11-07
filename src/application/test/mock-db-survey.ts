@@ -2,7 +2,7 @@ import { SurveyModel } from '@/domain/model/survey'
 import { mockSurvey, mockSurveysModels } from '@/domain/test'
 import { AddSurveyParams } from '@/domain/usecase/survey/add-survey'
 import { AddSurveyRepository } from '@/application/protocols/db/survey/add-survey-repository'
-import { LoadSurveyByIdRepository } from '@/application/protocols/db/survey/load-survey-by-idrepository'
+import { LoadSurveyByIdRepository } from '@/application/protocols/db/survey/load-survey-by-id-repository'
 import { LoadSurveysRepository } from '@/application/protocols/db/survey/load-surveys-repository'
 
 export const mockAddSurveyRepository = (): AddSurveyRepository => {
