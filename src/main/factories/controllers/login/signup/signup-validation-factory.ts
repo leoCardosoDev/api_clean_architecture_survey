@@ -1,5 +1,5 @@
 import { Validation } from '@/presentation/controllers/login/signup/signup-controller-protocols'
-import { CompareFieldsValidation, EmailFieldValidation, ValidationComposite, RequiredFieldValidation } from '@/validations/validators'
+import { CompareFieldsValidation, EmailValidation, ValidationComposite, RequiredFieldValidation } from '@/validations/validators'
 import { EmailValidatorAdapter } from '@/infra/validators/email-validator-adapter'
 
 export const makeSignUpValidation = (): ValidationComposite => {
@@ -8,6 +8,6 @@ export const makeSignUpValidation = (): ValidationComposite => {
     validations.push(new RequiredFieldValidation(field))
   }
   validations.push(new CompareFieldsValidation('password', 'passwordConfirmation'))
-  validations.push(new EmailFieldValidation('email', new EmailValidatorAdapter()))
+  validations.push(new EmailValidation('email', new EmailValidatorAdapter()))
   return new ValidationComposite(validations)
 }
