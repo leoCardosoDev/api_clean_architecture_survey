@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/require-await */
 import { AccountModel } from '@/domain/model/account'
+import { AuthenticationModel } from '@/domain/model/authentication'
 import { mockAccountModel } from '@/domain/test'
 import { AddAccount, AddAccountParams } from '@/domain/usecase/account/add-account'
 import { Authentication, AuthenticationParams } from '@/domain/usecase/account/authentication'
@@ -17,11 +19,14 @@ export class AddAccountSpy implements AddAccount {
 
 export class AuthenticationSpy implements Authentication {
   authenticationParams: AuthenticationParams
-  token = faker.random.uuid()
+  result = {
+    accessToken: faker.random.uuid(),
+    name: faker.name.findName()
+  }
 
-  async auth (authenticationParams: AuthenticationParams): Promise<string> {
+  async auth (authenticationParams: AuthenticationParams): Promise<AuthenticationModel> {
     this.authenticationParams = authenticationParams
-    return Promise.resolve(this.token)
+    return this.result
   }
 }
 
