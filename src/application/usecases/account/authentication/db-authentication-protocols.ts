@@ -1,4 +1,5 @@
 export * from '@/domain/model/account'
+export * from '@/domain/model/authentication'
 export * from '@/domain/usecase/account/authentication'
 export * from '@/application/protocols/criptogrphy/hash-comparer'
 export * from '@/application/protocols/criptogrphy/encrypter'
