@@ -3,17 +3,20 @@ export const surveyResultPath = {
     security: [{
       apiKeyAuth: []
     }],
-    tags: ['Enquetes'],
-    summary: 'API para a resposta de uma enquete',
+    tags: ['Enquete'],
+    summary: 'API para criar a resposta de uma enquete',
+    description: 'Essa rota só pode ser executada por **usuários autenticados**',
     parameters: [{
       in: 'path',
       name: 'surveyId',
+      description: 'ID da enquete a ser respondida',
       required: true,
       schema: {
         type: 'string'
       }
     }],
     requestBody: {
+      required: true,
       content: {
         'application/json': {
           schema: {
@@ -48,11 +51,13 @@ export const surveyResultPath = {
     security: [{
       apiKeyAuth: []
     }],
-    tags: ['Enquetes'],
+    tags: ['Enquete'],
     summary: 'API para consultar o resultado de uma enquete',
+    description: 'Essa rota só pode ser executada por **usuários autenticados**',
     parameters: [{
       in: 'path',
       name: 'surveyId',
+      description: 'ID da enquete a ser respondida',
       required: true,
       schema: {
         type: 'string'

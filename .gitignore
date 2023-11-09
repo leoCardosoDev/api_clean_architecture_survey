@@ -1,8 +1,8 @@
 node_modules
 dist
 coverage
-globalConfig.json
 data
-package-lock.json
-.env
 !src/data
+!tests/data
+.vscode
+globalConfig.json

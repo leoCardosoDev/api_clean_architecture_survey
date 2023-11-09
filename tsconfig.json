@@ -2,22 +2,16 @@
   "compilerOptions": {
     "outDir": "dist",
     "module": "commonjs",
-    "target": "ES2019",
-    "skipLibCheck": true,
-    "typeRoots": [
-      "src/@types",
-      "./node_modules/@types"
-    ],
+    "target": "es2019",
     "esModuleInterop": true,
     "sourceMap": true,
-    "rootDir": "src",
+    "rootDirs": ["src", "tests"],
     "baseUrl": "src",
     "paths": {
+      "@/tests/*": ["../tests/*"],
       "@/*": ["*"]
     }
   },
-  "include": [
-    "src"
-, "jest-mongodb-config.js"  ],
+  "include": ["src", "tests"],
   "exclude": []
 }
