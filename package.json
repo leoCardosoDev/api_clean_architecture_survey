@@ -1,6 +1,6 @@
 {
   "name": "01_node_backend_ca_enquetes",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "NodeJs Rest API and GraphQL using TDD, Clean Architecture, Typescript and Design Patterns",
   "author": "Leonardo de oliveira Silva",
   "license": "GPL-3.0-or-later",
