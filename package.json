@@ -1,6 +1,6 @@
 {
   "name": "01_node_backend_ca_enquetes",
-  "version": "2.5.4",
+  "version": "2.5.5",
   "description": "",
   "scripts": {
     "start": "node dist/main/server.js",
