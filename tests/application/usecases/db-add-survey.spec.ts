@@ -1,5 +1,5 @@
 import { DbAddSurvey } from '@/application/usecases'
-import { AddSurveyRepositorySpy } from '@/tests/data/mocks'
+import { AddSurveyRepositorySpy } from '@/tests/application/mocks'
 import { throwError, mockAddSurveyParams } from '@/tests/domain/mocks'
 
 import MockDate from 'mockdate'
