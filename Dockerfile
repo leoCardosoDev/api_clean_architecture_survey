@@ -4,7 +4,7 @@ ARG BUILD_DATE
 COPY package*.json ./
 RUN npm install --legacy-peer-deps --only=prod
 COPY . .
-EXPOSE 8000
+EXPOSE 5050
 # RUN npx husky install
 ENV HUSKY_SKIP_INSTALL=1
 CMD ["npm", "run", "debug"]
