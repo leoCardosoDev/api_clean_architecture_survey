@@ -1,7 +1,9 @@
 FROM node:18
 WORKDIR /usr/src/clean-node-api
 COPY package*.json ./
-RUN npm install --legacy-peer-deps --only=prod
+RUN npm cache clean --force && npm install --legacy-peer-deps --only=prod
+RUN ls -al /usr/src/clean-node-api
+RUN ls -al /usr/src/clean-node-api/dist/main
 COPY . .
 EXPOSE 5050
 ENV HUSKY_SKIP_INSTALL=1
