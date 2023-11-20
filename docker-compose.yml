@@ -11,10 +11,10 @@ services:
 
   api:
     container_name: api-container
-    build:
-      context: .
-      dockerfile: Dockerfile
-    working_dir: /usr/src/clean-node-api
+    image: node:18
+    command: >
+      sh -c "npm install --legacy-peer-deps --only=prod &&
+             node dist/main/server.js --inspect=0.0.0.0:9222 --nolazy"
     restart: always
     environment:
       - MONGO_URL=mongodb://mongo:27017/clean-node-api
